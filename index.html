@@ -40,11 +40,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Hero Section */
+        /* Hero Section - Compact */
         .hero {
             position: relative;
-            height: 100svh;
-            min-height: 600px;
+            height: 60svh;
+            min-height: 400px;
+            max-height: 500px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -71,7 +72,7 @@
                 to bottom,
                 rgba(26, 20, 16, 0) 0%,
                 rgba(26, 20, 16, 0.15) 40%,
-                rgba(26, 20, 16, 0.75) 70%,
+                rgba(26, 20, 16, 0.85) 80%,
                 rgba(26, 20, 16, 1) 100%
             );
             z-index: 2;
@@ -80,7 +81,7 @@
         .hero-content {
             position: relative;
             z-index: 3;
-            padding: 0 24px 48px;
+            padding: 0 24px 32px;
             max-width: 600px;
         }
 
@@ -91,18 +92,17 @@
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             padding: 6px 14px;
             border: 1px solid rgba(196, 167, 108, 0.3);
             border-radius: 2px;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 9vw, 60px);
+            font-size: clamp(32px, 8vw, 52px);
             font-weight: 300;
             letter-spacing: -0.5px;
             line-height: 1.05;
-            margin-bottom: 16px;
         }
 
         .hero h1 span {
@@ -111,297 +111,23 @@
             color: var(--gold);
         }
 
-        .hero-sub {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--cream-muted);
-            margin-bottom: 32px;
-            max-width: 400px;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            opacity: 0.5;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .scroll-hint svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
-            50% { opacity: 0.6; transform: translateX(-50%) translateY(4px); }
-        }
-
-        /* Product Section */
-        .product-section {
-            padding: 80px 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 24px;
-        }
-
-        .product-section h2 {
-            font-size: clamp(24px, 5vw, 36px);
-            font-weight: 300;
-            line-height: 1.3;
-            margin-bottom: 24px;
-        }
-
-        .product-section p {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--cream-muted);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        /* Detail Showcase - two images side by side */
-        .detail-showcase {
-            max-width: 900px;
-            margin: 0 auto 80px;
-            padding: 0 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .detail-card {
-            position: relative;
-            border-radius: 6px;
-            overflow: hidden;
-            background: var(--bg-section);
-        }
-
-        .detail-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .detail-card-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 24px 16px 16px;
-            background: linear-gradient(to top, rgba(26,20,16,0.8), transparent);
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--cream-muted);
-        }
-
-        @media (max-width: 600px) {
-            .detail-showcase {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-        }
-
-        /* Features */
-        .features {
-            padding: 60px 24px;
-            max-width: 800px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .feature {
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--gold);
-        }
-
-        .feature h3 {
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .feature p {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--cream-muted);
-            line-height: 1.6;
-        }
-
-        /* Lifestyle Gallery */
-        .lifestyle {
-            padding: 80px 0;
-        }
-
-        .lifestyle-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .lifestyle-hero {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .lifestyle-hero img {
-            width: 100%;
-            border-radius: 4px;
-            object-fit: cover;
-            max-height: 220px;
-            object-position: center 5%;
-        }
-
-        .lifestyle-duo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            max-width: 1000px;
-            margin: 4px auto 0;
-            padding: 0 24px;
-        }
-
-        .lifestyle-duo img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 4px;
-            object-position: center 0%;
-        }
-
-        @media (max-width: 600px) {
-            .lifestyle-duo img {
-                height: 140px;
-            }
-        }
-
-        .lifestyle-quote {
-            text-align: center;
-            padding: 40px 24px 0;
-            font-size: 20px;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--cream-muted);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* Social Proof / Action Section */
-        .social-proof {
-            padding: 80px 0;
-        }
-
-        .social-proof-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .social-grid img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 4px;
-            object-position: center top;
-        }
-
-        @media (max-width: 600px) {
-            .social-grid img {
-                height: 220px;
-            }
-        }
-
-        .social-caption {
-            text-align: center;
-            padding: 32px 24px 0;
-            font-size: 18px;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--cream-muted);
-        }
-
-        /* Order Section */
+        /* Order Section - Right after hero */
         .order-section {
-            padding: 80px 24px 100px;
-            max-width: 520px;
+            padding: 40px 24px 60px;
+            max-width: 480px;
             margin: 0 auto;
-        }
-
-        .order-section h2 {
-            font-size: clamp(28px, 6vw, 42px);
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .order-section h2 span {
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        .order-sub {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--cream-muted);
-            margin-bottom: 40px;
-            text-align: center;
         }
 
         .order-form {
             background: var(--bg-section);
             border: 1px solid var(--brown-mid);
             border-radius: 6px;
-            padding: 32px;
+            padding: 28px;
         }
 
         .order-price {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .order-price .amount {
@@ -417,7 +143,7 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .form-label {
@@ -469,148 +195,10 @@
             font-weight: 500;
         }
 
-        .order-button {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: var(--gold);
-            color: var(--bg-dark);
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .order-button:hover {
-            background: var(--cream);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(196, 167, 108, 0.2);
-        }
-
-        .order-note {
-            margin-top: 16px;
-            font-size: 13px;
-            color: var(--brown-light);
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        .order-secure {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 12px;
-            font-size: 11px;
-            color: var(--brown-light);
-            letter-spacing: 0.5px;
-        }
-
-        .order-secure svg {
-            width: 12px;
-            height: 12px;
-        }
-
-        /* Divider */
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: var(--brown-mid);
-            margin: 0 auto;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid rgba(61, 50, 40, 0.5);
-        }
-
-        .footer-logo {
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: lowercase;
-            color: var(--brown-light);
-            margin-bottom: 8px;
-        }
-
-        .footer p {
-            font-size: 12px;
-            color: var(--brown-mid);
-        }
-
-        .footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        /* Animations - visible by default, animate as enhancement */
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .fade-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.8s ease, transform 0.8s ease;
-            }
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sticky CTA on mobile */
-        .sticky-cta {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 12px 24px;
-            padding-bottom: max(12px, env(safe-area-inset-bottom));
-            background: linear-gradient(to top, var(--bg-dark) 60%, transparent);
-        }
-
-        .sticky-cta a {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background: var(--gold);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
-            border-radius: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .sticky-cta {
-                display: block;
-            }
-            .cta-section {
-                padding-bottom: 120px;
-            }
-        }
-
-        /* Add-on Option */
         .addon-option {
-            margin-bottom: 20px;
-            padding: 16px;
-            background: rgba(196, 167, 108, 0.1);
+            margin-bottom: 16px;
+            padding: 14px;
+            background: rgba(196, 167, 108, 0.08);
             border: 1px solid var(--brown-mid);
             border-radius: 4px;
         }
@@ -635,6 +223,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            flex-shrink: 0;
         }
 
         .addon-checkbox input:checked + .addon-check {
@@ -668,185 +257,258 @@
             color: var(--gold);
         }
 
-        /* Cross-sell Section */
-        .cross-sell {
-            padding: 60px 24px;
-            max-width: 600px;
-            margin: 0 auto;
+        .order-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            background: var(--cream);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(196, 167, 108, 0.2);
+        }
+
+        .order-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--brown-light);
             text-align: center;
         }
 
-        .cross-sell-label {
+        .order-secure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--brown-light);
+        }
+
+        .order-secure svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--brown-mid);
+            margin: 0 auto;
+        }
+
+        /* Product Section - Condensed */
+        .product-section {
+            padding: 60px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-label {
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .cross-sell-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: var(--bg-section);
-            border: 1px solid var(--brown-mid);
-            border-radius: 6px;
-            padding: 16px;
-            text-decoration: none;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+        .product-section h2 {
+            font-size: clamp(22px, 5vw, 32px);
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            text-align: center;
         }
 
-        .cross-sell-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-2px);
-        }
-
-        .cross-sell-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 4px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .cross-sell-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cross-sell-info {
-            text-align: left;
-        }
-
-        .cross-sell-info h3 {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--cream);
-            margin-bottom: 4px;
-        }
-
-        .cross-sell-info p {
-            font-size: 14px;
+        .product-section p {
+            font-size: 15px;
             font-weight: 300;
             color: var(--cream-muted);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Detail Images - Side by side */
+        .detail-showcase {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .detail-card {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--bg-section);
+        }
+
+        .detail-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 500px) {
+            .detail-showcase {
+                grid-template-columns: 1fr;
+            }
+            .detail-card img {
+                height: 180px;
+            }
+        }
+
+        /* Features - Inline */
+        .features {
+            padding: 40px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 0 1 150px;
+        }
+
+        .feature h3 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            color: var(--cream);
+        }
+
+        .feature p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-muted);
+        }
+
+        /* Social Proof - Compact */
+        .social-proof {
+            padding: 60px 24px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            object-position: center top;
+        }
+
+        @media (max-width: 600px) {
+            .social-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .social-grid img {
+                height: 160px;
+            }
+        }
+
+        .social-caption {
+            text-align: center;
+            padding: 24px 24px 0;
+            font-size: 16px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(61, 50, 40, 0.5);
+        }
+
+        .footer-logo {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+            color: var(--brown-light);
             margin-bottom: 8px;
         }
 
-        .cross-sell-link {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gold);
+        .footer p {
+            font-size: 12px;
+            color: var(--brown-mid);
         }
 
-        @media (max-width: 480px) {
-            .cross-sell-card {
-                flex-direction: column;
-                text-align: center;
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
             }
-            .cross-sell-info {
-                text-align: center;
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero -->
+    <!-- Hero - Compact -->
     <section class="hero">
         <div class="hero-image">
-            <img src="images/hero-solo.png" alt="FC Athletic Club brown hoodie editorial" loading="eager">
+            <img src="images/hero-solo.png" alt="FC Athletic Club brown hoodie" loading="eager">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge">Sold out at The Beaches</div>
-            <h1>
-                Back by<br>
-                <span>demand.</span>
-            </h1>
-            <p class="hero-sub">The FC Athletic Club hoodie. Limited reorder window now open.</p>
-        </div>
-        <div class="scroll-hint">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+            <h1>Back by <span>demand.</span></h1>
         </div>
     </section>
 
-    <!-- Product Details -->
-    <section class="product-section fade-in">
-        <div class="section-label">The Hoodie</div>
-        <h2>Brown on brown. Quiet on purpose.</h2>
-        <p>
-            No loud logos. No flashy branding. Just a simple, tonal reminder of the club you chose to belong to. The FC Athletic Club hoodie features brown-on-brown embroidery on an oversized, heavyweight comfort fit that people couldn't stop talking about all weekend.
-        </p>
-        <p>
-            It sold out before we could restock. Your DMs made it clear: you need a second chance. This is it.
-        </p>
-    </section>
-
-    <!-- Detail Showcase -->
-    <div class="detail-showcase fade-in">
-        <div class="detail-card">
-            <img src="images/flat-lay.png" alt="FC Athletic Club hoodie folded product shot" loading="lazy">
-            <div class="detail-card-label">The hoodie</div>
-        </div>
-        <div class="detail-card">
-            <img src="images/hoodie-detail.jpg" alt="FC Athletic Club tonal embroidery detail" loading="lazy">
-            <div class="detail-card-label">Tonal embroidery</div>
-        </div>
-    </div>
-
-    <!-- Features -->
-    <div class="divider"></div>
-    <section class="features fade-in">
-        <div class="feature">
-            <div class="feature-icon">&#9678;</div>
-            <h3>Oversized Fit</h3>
-            <p>Comfort-first cut designed to feel like your favorite hoodie from day one</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">&#9674;</div>
-            <h3>Tonal Embroidery</h3>
-            <p>Brown on brown. Subtle, intentional, and unmistakably FC</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">&#9733;</div>
-            <h3>Heavyweight</h3>
-            <p>Premium weight fleece that holds its shape and gets better with wear</p>
-        </div>
-    </section>
-    <div class="divider"></div>
-
-    <!-- Lifestyle Gallery -->
-    <section class="lifestyle fade-in">
-        <div class="lifestyle-label">Wear it everywhere</div>
-        <div class="lifestyle-hero">
-            <img src="images/trio-golden-hour.png" alt="Three friends walking together in FC Athletic Club hoodies at golden hour" loading="lazy">
-        </div>
-        <div class="lifestyle-duo">
-            <img src="images/duo-lifestyle.png" alt="FC Athletic Club hoodie styled for coffee runs and morning jogs" loading="lazy">
-            <img src="images/hoodie-rack.jpg" alt="FC Athletic Club hoodies on rack at The Beaches" loading="lazy">
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="social-proof fade-in">
-        <div class="social-proof-label">From coffee runs to finish lines</div>
-        <div class="social-grid">
-            <img src="images/man-street-1.jpg" alt="Man wearing FC Athletic Club hoodie urban style" loading="lazy">
-            <img src="images/man-portrait-2.jpg" alt="Man in FC Athletic Club hoodie with hood up" loading="lazy">
-            <img src="images/man-portrait-1.jpg" alt="Man in FC Athletic Club hoodie portrait" loading="lazy">
-            <img src="images/man-hood-center.jpg" alt="Man in FC Athletic Club hoodie with hood" loading="lazy">
-        </div>
-        <p class="social-caption">"This isn't merch. It's a membership card."</p>
-    </section>
-
-    <!-- Order -->
-    <section class="order-section fade-in" id="order">
-        <h2>Limited reorder<br><span>window is open.</span></h2>
-        <p class="order-sub">Once it closes, it closes.</p>
+    <!-- Order - Immediately after hero -->
+    <section class="order-section" id="order">
         <div class="order-form">
             <div class="order-price">
                 <div class="amount">$57</div>
@@ -899,19 +561,54 @@
         </div>
     </section>
 
-    <!-- Complete the Look -->
-    <section class="cross-sell fade-in">
-        <div class="cross-sell-label">Complete the look</div>
-        <a href="socks.html" class="cross-sell-card">
-            <div class="cross-sell-image">
-                <img src="images/socks-hero.png" alt="FC Athletic Club Socks" loading="lazy">
-            </div>
-            <div class="cross-sell-info">
-                <h3>FC Athletic Club Socks</h3>
-                <p>The perfect pair. Same quiet confidence.</p>
-                <span class="cross-sell-link">Shop Socks →</span>
-            </div>
-        </a>
+    <div class="divider"></div>
+
+    <!-- Product Details - Condensed -->
+    <section class="product-section fade-in">
+        <div class="section-label">The Hoodie</div>
+        <h2>Brown on brown. Quiet on purpose.</h2>
+        <p>
+            Tonal embroidery on an oversized, heavyweight comfort fit. No loud logos. Just a simple reminder of the club you chose to belong to.
+        </p>
+    </section>
+
+    <!-- Detail Images -->
+    <div class="detail-showcase fade-in">
+        <div class="detail-card">
+            <img src="images/flat-lay.png" alt="FC Athletic Club hoodie folded" loading="lazy">
+        </div>
+        <div class="detail-card">
+            <img src="images/hoodie-detail.jpg" alt="Tonal embroidery detail" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Features - Compact -->
+    <section class="features fade-in">
+        <div class="feature">
+            <h3>Oversized Fit</h3>
+            <p>Comfort-first cut</p>
+        </div>
+        <div class="feature">
+            <h3>Tonal Embroidery</h3>
+            <p>Brown on brown</p>
+        </div>
+        <div class="feature">
+            <h3>Heavyweight</h3>
+            <p>Premium fleece</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Social Proof - 4 images in a row -->
+    <section class="social-proof fade-in">
+        <div class="social-grid">
+            <img src="images/man-street-1.jpg" alt="FC Athletic Club hoodie street style" loading="lazy">
+            <img src="images/man-portrait-2.jpg" alt="FC Athletic Club hoodie portrait" loading="lazy">
+            <img src="images/man-portrait-1.jpg" alt="FC Athletic Club hoodie lifestyle" loading="lazy">
+            <img src="images/man-hood-center.jpg" alt="FC Athletic Club hoodie with hood" loading="lazy">
+        </div>
+        <p class="social-caption">"This isn't merch. It's a membership card."</p>
     </section>
 
     <!-- Footer -->
@@ -919,11 +616,6 @@
         <div class="footer-logo">fc athletic club</div>
         <p>A <a href="https://www.friendshipcircle.com" target="_blank" rel="noopener">Friendship Circle</a> collection</p>
     </footer>
-
-    <!-- Sticky Mobile CTA -->
-    <div class="sticky-cta">
-        <a href="#order">Reserve My Hoodie</a>
-    </div>
 
     <script>
         // Intersection Observer for fade-in animations
@@ -933,37 +625,13 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Hide scroll hint after scrolling
-        const scrollHint = document.querySelector('.scroll-hint');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100 && scrollHint) {
-                scrollHint.style.opacity = '0';
-                scrollHint.style.transition = 'opacity 0.5s ease';
-            }
-        }, { passive: true });
-
-        // Hide sticky CTA in hero and near order section
-        const stickyCta = document.querySelector('.sticky-cta');
-        const hero = document.querySelector('.hero');
-        const orderSection = document.getElementById('order');
-        if (stickyCta && hero) {
-            window.addEventListener('scroll', () => {
-                const heroBottom = hero.offsetHeight;
-                const orderTop = orderSection ? orderSection.offsetTop - window.innerHeight : Infinity;
-                const show = window.scrollY > heroBottom * 0.5 && window.scrollY < orderTop;
-                stickyCta.style.opacity = show ? '1' : '0';
-                stickyCta.style.pointerEvents = show ? 'auto' : 'none';
-                stickyCta.style.transition = 'opacity 0.3s ease';
-            }, { passive: true });
-        }
-
         // Stripe checkout
         const HOODIE_URL = 'https://buy.stripe.com/aFa7sLf9P3ms6oWahXgnK0O';
-        const BUNDLE_URL = 'BUNDLE_STRIPE_LINK_HERE'; // Mendel: Create a Stripe payment link for Hoodie + Socks bundle
+        const BUNDLE_URL = 'BUNDLE_STRIPE_LINK_HERE'; // Create a Stripe payment link for Hoodie + Socks bundle ($75)
         
         document.getElementById('orderBtn').addEventListener('click', () => {
             const size = document.querySelector('input[name="size"]:checked').value;
