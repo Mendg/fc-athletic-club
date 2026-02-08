@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story 1 - Announcement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0806;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .story-frame {
+            width: 375px;
+            height: 667px;
+            background: #1a1410;
+            color: #e8dfd3;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .story-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .story-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+        .story-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 20, 16, 0) 0%,
+                rgba(26, 20, 16, 0.2) 35%,
+                rgba(26, 20, 16, 0.8) 65%,
+                rgba(26, 20, 16, 0.95) 100%
+            );
+            z-index: 2;
+        }
+        .story-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px 28px;
+            text-align: center;
+        }
+        .badge {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c4a76c;
+            border: 1.5px solid rgba(196,167,108,0.3);
+            padding: 6px 14px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        h1 span {
+            color: #c4a76c;
+            font-weight: 500;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #b8af9a;
+            line-height: 1.5;
+        }
+        .swipe {
+            margin-top: 28px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c4a76c;
+            opacity: 0.7;
+        }
+        .swipe span {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+        .instructions {
+            color: #666;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="story-frame">
+            <div class="story-bg">
+                <img src="../images/hero-solo.png" alt="FC Athletic Club hoodie">
+            </div>
+            <div class="story-overlay"></div>
+            <div class="story-content">
+                <div class="badge">Sold out at The Beaches</div>
+                <h1>The FC Athletic Club<br>hoodie is <span>back.</span></h1>
+                <p>Limited reorder window now open.</p>
+                <div class="swipe"><span>&#8593;</span> Swipe up to order</div>
+            </div>
+        </div>
+        <p class="instructions">Screenshot this on your phone for Instagram Stories (1080x1920)</p>
+    </div>
+</body>
+</html>

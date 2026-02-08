@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story 4 - Last Call</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0806;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .story-frame {
+            width: 375px;
+            height: 667px;
+            background: #1a1410;
+            color: #e8dfd3;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .story-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .story-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+        .story-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 20, 16, 0.1) 0%,
+                rgba(26, 20, 16, 0.15) 30%,
+                rgba(26, 20, 16, 0.75) 60%,
+                rgba(26, 20, 16, 0.97) 100%
+            );
+            z-index: 2;
+        }
+        .story-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px 28px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        h1 span {
+            color: #c4a76c;
+            font-weight: 500;
+        }
+        .line {
+            width: 50px;
+            height: 1px;
+            background: #c4a76c;
+            margin: 0 auto 16px;
+        }
+        p {
+            font-size: 15px;
+            font-weight: 300;
+            color: #b8af9a;
+            margin-bottom: 28px;
+        }
+        .cta-box {
+            display: inline-block;
+            padding: 14px 36px;
+            border: 1.5px solid #c4a76c;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c4a76c;
+        }
+        .fc-logo {
+            margin-top: 28px;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: lowercase;
+            color: rgba(90, 74, 58, 0.6);
+        }
+        .instructions {
+            color: #666;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="story-frame">
+            <div class="story-bg">
+                <img src="../images/trio-golden-hour.png" alt="Friends in FC Athletic Club hoodies">
+            </div>
+            <div class="story-overlay"></div>
+            <div class="story-content">
+                <h1>Last call.<br><span>Window closing.</span></h1>
+                <div class="line"></div>
+                <p>Once it's gone, it's gone.</p>
+                <div class="cta-box">Order Now</div>
+                <div class="fc-logo">fc athletic club</div>
+            </div>
+        </div>
+        <p class="instructions">Screenshot this on your phone for Instagram Stories</p>
+    </div>
+</body>
+</html>

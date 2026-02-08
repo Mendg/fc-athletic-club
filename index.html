@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Athletic Club | Back by Demand</title>
+    <meta name="description" content="The FC Athletic Club hoodie sold out at The Beaches. Limited reorder window now open.">
+    <meta property="og:title" content="FC Athletic Club Hoodie | Back by Demand">
+    <meta property="og:description" content="The hoodie that sold out in hours. Limited reorder window now open.">
+    <meta property="og:image" content="images/hero-solo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #1a1410;
+            --bg-section: #211c16;
+            --cream: #e8dfd3;
+            --cream-muted: #b8af9a;
+            --gold: #c4a76c;
+            --brown-mid: #3d3228;
+            --brown-light: #5a4a3a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--cream);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100svh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 20, 16, 0) 0%,
+                rgba(26, 20, 16, 0.15) 40%,
+                rgba(26, 20, 16, 0.75) 70%,
+                rgba(26, 20, 16, 1) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 24px 48px;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+            padding: 6px 14px;
+            border: 1px solid rgba(196, 167, 108, 0.3);
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 9vw, 60px);
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--cream-muted);
+            margin-bottom: 32px;
+            max-width: 400px;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.5;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .scroll-hint svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 0.6; transform: translateX(-50%) translateY(4px); }
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 80px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .product-section h2 {
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .product-section p {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--cream-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* Detail Showcase - two images side by side */
+        .detail-showcase {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .detail-card {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--bg-section);
+        }
+
+        .detail-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .detail-card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 16px 16px;
+            background: linear-gradient(to top, rgba(26,20,16,0.8), transparent);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+        }
+
+        @media (max-width: 600px) {
+            .detail-showcase {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--gold);
+        }
+
+        .feature h3 {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--cream-muted);
+            line-height: 1.6;
+        }
+
+        /* Lifestyle Gallery */
+        .lifestyle {
+            padding: 80px 0;
+        }
+
+        .lifestyle-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .lifestyle-hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .lifestyle-hero img {
+            width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+            max-height: 500px;
+            object-position: center 15%;
+        }
+
+        .lifestyle-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            max-width: 1000px;
+            margin: 4px auto 0;
+            padding: 0 24px;
+        }
+
+        .lifestyle-duo img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            object-position: center 20%;
+        }
+
+        @media (max-width: 600px) {
+            .lifestyle-duo img {
+                height: 250px;
+            }
+        }
+
+        .lifestyle-quote {
+            text-align: center;
+            padding: 40px 24px 0;
+            font-size: 20px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream-muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Social Proof / Action Section */
+        .social-proof {
+            padding: 80px 0;
+        }
+
+        .social-proof-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .social-grid img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .social-grid img {
+                height: 220px;
+            }
+        }
+
+        .social-caption {
+            text-align: center;
+            padding: 32px 24px 0;
+            font-size: 18px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream-muted);
+        }
+
+        /* Order Section */
+        .order-section {
+            padding: 80px 24px 100px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .order-section h2 {
+            font-size: clamp(28px, 6vw, 42px);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .order-section h2 span {
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .order-sub {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--cream-muted);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .order-form {
+            background: var(--bg-section);
+            border: 1px solid var(--brown-mid);
+            border-radius: 6px;
+            padding: 32px;
+        }
+
+        .order-price {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .order-price .amount {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--cream);
+        }
+
+        .order-price .label {
+            font-size: 13px;
+            color: var(--cream-muted);
+            margin-top: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            margin-bottom: 10px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .size-option {
+            flex: 1;
+            text-align: center;
+        }
+
+        .size-option input {
+            display: none;
+        }
+
+        .size-option label {
+            display: block;
+            padding: 12px 8px;
+            border: 1px solid var(--brown-mid);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--cream-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .size-option label:hover {
+            border-color: var(--gold);
+            color: var(--cream);
+        }
+
+        .size-option input:checked + label {
+            border-color: var(--gold);
+            background: rgba(196, 167, 108, 0.1);
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .order-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            background: var(--cream);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(196, 167, 108, 0.2);
+        }
+
+        .order-note {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--brown-light);
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .order-secure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 11px;
+            color: var(--brown-light);
+            letter-spacing: 0.5px;
+        }
+
+        .order-secure svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--brown-mid);
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(61, 50, 40, 0.5);
+        }
+
+        .footer-logo {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+            color: var(--brown-light);
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: var(--brown-mid);
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Animations - visible by default, animate as enhancement */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sticky CTA on mobile */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 12px 24px;
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
+            background: linear-gradient(to top, var(--bg-dark) 60%, transparent);
+        }
+
+        .sticky-cta a {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                display: block;
+            }
+            .cta-section {
+                padding-bottom: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="images/hero-solo.png" alt="FC Athletic Club brown hoodie editorial" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Sold out at The Beaches</div>
+            <h1>
+                Back by<br>
+                <span>demand.</span>
+            </h1>
+            <p class="hero-sub">The FC Athletic Club hoodie. Limited reorder window now open.</p>
+        </div>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="product-section fade-in">
+        <div class="section-label">The Hoodie</div>
+        <h2>Brown on brown. Quiet on purpose.</h2>
+        <p>
+            No loud logos. No flashy branding. Just a simple, tonal reminder of the club you chose to belong to. The FC Athletic Club hoodie features brown-on-brown embroidery on an oversized, heavyweight comfort fit that people couldn't stop talking about all weekend.
+        </p>
+        <p>
+            It sold out before we could restock. Your DMs made it clear: you need a second chance. This is it.
+        </p>
+    </section>
+
+    <!-- Detail Showcase -->
+    <div class="detail-showcase fade-in">
+        <div class="detail-card">
+            <img src="images/flat-lay.png" alt="FC Athletic Club hoodie folded product shot" loading="lazy">
+            <div class="detail-card-label">The hoodie</div>
+        </div>
+        <div class="detail-card">
+            <img src="images/hoodie-detail.jpg" alt="FC Athletic Club tonal embroidery detail" loading="lazy">
+            <div class="detail-card-label">Tonal embroidery</div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="divider"></div>
+    <section class="features fade-in">
+        <div class="feature">
+            <div class="feature-icon">&#9678;</div>
+            <h3>Oversized Fit</h3>
+            <p>Comfort-first cut designed to feel like your favorite hoodie from day one</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">&#9674;</div>
+            <h3>Tonal Embroidery</h3>
+            <p>Brown on brown. Subtle, intentional, and unmistakably FC</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">&#9733;</div>
+            <h3>Heavyweight</h3>
+            <p>Premium weight fleece that holds its shape and gets better with wear</p>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- Lifestyle Gallery -->
+    <section class="lifestyle fade-in">
+        <div class="lifestyle-label">Wear it everywhere</div>
+        <div class="lifestyle-hero">
+            <img src="images/trio-golden-hour.png" alt="Three friends walking together in FC Athletic Club hoodies at golden hour" loading="lazy">
+        </div>
+        <div class="lifestyle-duo">
+            <img src="images/duo-lifestyle.png" alt="FC Athletic Club hoodie styled for coffee runs and morning jogs" loading="lazy">
+            <img src="images/hoodie-rack.jpg" alt="FC Athletic Club hoodies on rack at The Beaches" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof fade-in">
+        <div class="social-proof-label">From coffee runs to finish lines</div>
+        <div class="social-grid">
+            <img src="images/street-portrait.png" alt="FC Athletic Club hoodie street style" loading="lazy">
+            <img src="images/friends-laughing.png" alt="Friends laughing in FC Athletic Club hoodies" loading="lazy">
+            <img src="images/cozy-coffee.png" alt="Cozy morning in FC Athletic Club hoodie" loading="lazy">
+            <img src="images/golden-hour-run.png" alt="Running at golden hour in FC Athletic Club hoodie" loading="lazy">
+        </div>
+        <p class="social-caption">"This isn't merch. It's a membership card."</p>
+    </section>
+
+    <!-- Order -->
+    <section class="order-section fade-in" id="order">
+        <h2>Limited reorder<br><span>window is open.</span></h2>
+        <p class="order-sub">Once it closes, it closes.</p>
+        <div class="order-form">
+            <div class="order-price">
+                <div class="amount">$67</div>
+                <div class="label">Free shipping included</div>
+            </div>
+            <div class="form-group">
+                <span class="form-label">Select size</span>
+                <div class="size-options">
+                    <div class="size-option">
+                        <input type="radio" name="size" id="size-s" value="S">
+                        <label for="size-s">S</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" name="size" id="size-m" value="M" checked>
+                        <label for="size-m">M</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" name="size" id="size-l" value="L">
+                        <label for="size-l">L</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" name="size" id="size-xl" value="XL">
+                        <label for="size-xl">XL</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" name="size" id="size-2xl" value="2XL">
+                        <label for="size-2xl">2XL</label>
+                    </div>
+                </div>
+            </div>
+            <button class="order-button" id="orderBtn">Reserve My Hoodie</button>
+            <p class="order-note">Ships within 3-4 weeks of window closing</p>
+            <div class="order-secure">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/>
+                    <path d="M7 11V7a5 5 0 0110 0v4"/>
+                </svg>
+                Secure checkout powered by Stripe
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">fc athletic club</div>
+        <p>A <a href="https://www.friendshipcircle.com" target="_blank" rel="noopener">Friendship Circle</a> collection</p>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="#order">Reserve My Hoodie</a>
+    </div>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Hide scroll hint after scrolling
+        const scrollHint = document.querySelector('.scroll-hint');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100 && scrollHint) {
+                scrollHint.style.opacity = '0';
+                scrollHint.style.transition = 'opacity 0.5s ease';
+            }
+        }, { passive: true });
+
+        // Hide sticky CTA in hero and near order section
+        const stickyCta = document.querySelector('.sticky-cta');
+        const hero = document.querySelector('.hero');
+        const orderSection = document.getElementById('order');
+        if (stickyCta && hero) {
+            window.addEventListener('scroll', () => {
+                const heroBottom = hero.offsetHeight;
+                const orderTop = orderSection ? orderSection.offsetTop - window.innerHeight : Infinity;
+                const show = window.scrollY > heroBottom * 0.5 && window.scrollY < orderTop;
+                stickyCta.style.opacity = show ? '1' : '0';
+                stickyCta.style.pointerEvents = show ? 'auto' : 'none';
+                stickyCta.style.transition = 'opacity 0.3s ease';
+            }, { passive: true });
+        }
+
+        // Stripe checkout
+        const PAYMENT_URL = 'https://buy.stripe.com/dRm00j8Lr2io4gOfChgnK0M';
+        document.getElementById('orderBtn').addEventListener('click', () => {
+            const size = document.querySelector('input[name="size"]:checked').value;
+            window.open(PAYMENT_URL + '?client_reference_id=size_' + size, '_blank');
+        });
+    </script>
+
+</body>
+</html>
