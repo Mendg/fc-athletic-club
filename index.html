@@ -704,7 +704,7 @@
         <p class="order-sub">Once it closes, it closes.</p>
         <div class="order-form">
             <div class="order-price">
-                <div class="amount">$67</div>
+                <div class="amount">$57</div>
                 <div class="label">Free shipping included</div>
             </div>
             <div class="form-group">
@@ -792,7 +792,7 @@
         }
 
         // Stripe checkout
-        const PAYMENT_URL = 'https://buy.stripe.com/dRm00j8Lr2io4gOfChgnK0M';
+        const PAYMENT_URL = 'https://buy.stripe.com/aFa7sLf9P3ms6oWahXgnK0O';
         document.getElementById('orderBtn').addEventListener('click', () => {
             const size = document.querySelector('input[name="size"]:checked').value;
             window.open(PAYMENT_URL + '?client_reference_id=size_' + size, '_blank');
