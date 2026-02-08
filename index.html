@@ -606,6 +606,68 @@
             }
         }
 
+        /* Add-on Option */
+        .addon-option {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(196, 167, 108, 0.1);
+            border: 1px solid var(--brown-mid);
+            border-radius: 4px;
+        }
+
+        .addon-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .addon-checkbox input {
+            display: none;
+        }
+
+        .addon-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--brown-light);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .addon-checkbox input:checked + .addon-check {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .addon-checkbox input:checked + .addon-check::after {
+            content: '✓';
+            color: var(--bg-dark);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .addon-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+        }
+
+        .addon-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--cream);
+        }
+
+        .addon-price {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
         /* Cross-sell Section */
         .cross-sell {
             padding: 60px 24px;
@@ -815,6 +877,16 @@
                     </div>
                 </div>
             </div>
+            <div class="addon-option">
+                <label class="addon-checkbox">
+                    <input type="checkbox" id="addSocks">
+                    <span class="addon-check"></span>
+                    <span class="addon-info">
+                        <span class="addon-title">Add FC Athletic Club Socks</span>
+                        <span class="addon-price">+$18</span>
+                    </span>
+                </label>
+            </div>
             <button class="order-button" id="orderBtn">Reserve My Hoodie</button>
             <p class="order-note">Ships within 3-4 weeks of window closing</p>
             <div class="order-secure">
@@ -890,10 +962,20 @@
         }
 
         // Stripe checkout
-        const PAYMENT_URL = 'https://buy.stripe.com/aFa7sLf9P3ms6oWahXgnK0O';
+        const HOODIE_URL = 'https://buy.stripe.com/aFa7sLf9P3ms6oWahXgnK0O';
+        const BUNDLE_URL = 'BUNDLE_STRIPE_LINK_HERE'; // Mendel: Create a Stripe payment link for Hoodie + Socks bundle
+        
         document.getElementById('orderBtn').addEventListener('click', () => {
             const size = document.querySelector('input[name="size"]:checked').value;
-            window.open(PAYMENT_URL + '?client_reference_id=size_' + size, '_blank');
+            const addSocks = document.getElementById('addSocks').checked;
+            const url = addSocks ? BUNDLE_URL : HOODIE_URL;
+            
+            if (addSocks && BUNDLE_URL === 'BUNDLE_STRIPE_LINK_HERE') {
+                alert('Bundle checkout not configured yet. Please contact us to add socks to your order.');
+                return;
+            }
+            
+            window.open(url + '?client_reference_id=size_' + size, '_blank');
         });
     </script>
 
